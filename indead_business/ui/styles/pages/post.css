@@ -1,0 +1,106 @@
+.post{min-height:100vh;min-height:100dvh;background:var(--bg);}
+
+/* Layout 50/50 */
+.post-split{
+  max-width: 1200px; margin: 18px auto 40px; padding: 0 16px;
+  display: grid; gap: 18px;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 1100px){ .post-split{ grid-template-columns:1fr; } }
+
+.hidden{ display:none !important; }
+
+/* ------------ Formulaires ------------- */
+.post-form,.details-form{
+  background: var(--bg); border:1px solid var(--border);
+  border-radius:14px; padding:18px; box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+html[data-theme="dark"] .post-form,
+html[data-theme="dark"] .details-form{ box-shadow:0 8px 22px rgba(0,0,0,.35); }
+.post-title{ margin:0 0 12px 0; font-size:20px; color:var(--ink); }
+
+.grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+@media (max-width: 1100px){ .grid{ grid-template-columns:1fr; } }
+
+.fld{ display:grid; gap:6px; }
+.lbl{ color:var(--muted); font-size:13px; }
+.inp,.txt{
+  width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border);
+  background:var(--bg); color:var(--ink); font-weight:500;
+}
+.inp[readonly]{ background:rgba(127,127,127,0.06); color:var(--muted); }
+.txt{ resize:vertical; min-height:110px; }
+
+.desc-hint{ margin:0 0 10px 0; color:var(--muted); font-size:13px; }
+
+/* Badges (étape 1) */
+.badges-row{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 6px; }
+.badge-edit{ display:flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px; font-weight:600; }
+.badge-blue{ background:rgba(37,87,167,.08); color:#1e3a8a; }
+.badge-green{ background:rgba(16,185,129,.10); color:#065f46; }
+.badge-gray{ background:rgba(107,114,128,.15); color:#111827; }
+.badge-edit .icon{ font-style:normal; }
+.inp-mini,.sel-mini{
+  padding:6px 8px; border-radius:8px; border:1px solid var(--border);
+  background:var(--bg); color:var(--ink); font-weight:600; min-width:80px;
+}
+.inp-mini{ min-width:110px; }
+.badge-green .ok{ font-weight:800; }
+
+/* Type d’entreprise (info) */
+.hint-type{ margin-top:8px; display:flex; align-items:center; gap:8px; }
+.hint-pill{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background:rgba(37,87,167,.08); color:#1e3a8a; font-weight:700; font-size:12px;
+}
+
+/* ------------ Prévisualisation --------- */
+.preview-panel{
+  display:grid;
+  grid-template-rows: auto 1fr auto;  /* titre / carte scroll / boutons */
+  gap:10px;
+  height: 620px;                      /* ✅ hauteur fixe du panneau */
+}
+.preview-heading{ margin:0; font-size:16px; color:var(--muted); }
+
+.job-card{
+  background: var(--bg); border:1px solid var(--border);
+  border-radius:14px; padding:16px 16px 18px 16px;
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+  height: 100%;                        /* ✅ prend toute la zone centrale */
+  overflow: auto;                      /* ✅ scroll interne si long */
+}
+html[data-theme="dark"] .job-card{ box-shadow:0 8px 22px rgba(0,0,0,.35); }
+
+.pv-title{ font-weight:800; color:#111827; text-decoration:underline; font-size:22px; }
+html[data-theme="dark"] .pv-title{ color:#e5e7eb; }
+.pv-company{ color:var(--ink); font-weight:700; margin-top:6px; font-size:16px; }
+.pv-location{ color:var(--muted); margin-top:2px; font-size:13px; }
+
+.pv-badges{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0 6px; }
+.b{ display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:10px; font-weight:700; font-size:13px; }
+.b-blue{ background:rgba(37,87,167,.08); color:#1e3a8a; grid-column:1/-1; }
+.b-green{ background:rgba(16,185,129,.10); color:#065f46; grid-column:1; }
+.b-gray{  background:rgba(107,114,128,.15); color:#111827; grid-column:2; }
+.b-blue i{ font-style:normal; }
+
+.pv-type{ color:#2563eb; text-decoration:underline; font-size:14px; }
+
+.pv-body{ margin-top:12px; }
+.pv-body__label{ display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
+.pv-bodyhtml{ color:var(--ink); line-height:1.46; }
+.pv-bodyhtml h4{ margin:10px 0 6px; font-size:15px; }
+.pv-bodyhtml p{ margin:6px 0; }
+.pv-bodyhtml ul{ margin:6px 0 6px 16px; padding:0; }
+.pv-bodyhtml li{ margin:4px 0; }
+
+.preview-actions{ display:flex; gap:10px; justify-content:flex-end; }
+.btn-primary{
+  border:0; background:#2557a7; color:#fff; font-weight:700;
+  padding:10px 16px; border-radius:10px; cursor:pointer;
+}
+.btn-success{
+  border:0; background:#059669; color:#fff; font-weight:700;
+  padding:10px 16px; border-radius:10px; cursor:pointer;
+}
+.btn-primary:hover,.btn-success:hover{ filter:brightness(.98); }

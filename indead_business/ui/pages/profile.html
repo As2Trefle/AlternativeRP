@@ -1,0 +1,53 @@
+<!-- ui/pages/profile.html -->
+<section class="profile" data-page="profile">
+  <div id="header-root" aria-live="polite"></div>
+
+  <div class="profile-wrap">
+    <article class="profile-card">
+      <header class="profile-card__head">
+        <h2 id="profile-title">Profil d’entreprise</h2>
+        <div class="profile-actions">
+          <button id="btnEdit" class="btn btn-edit" type="button">Modifier</button>
+          <button id="btnSave" class="btn btn-save" type="button" disabled>Sauvegarder</button>
+        </div>
+      </header>
+
+      <p class="profile-muted">
+        Les informations ci-dessous proviennent de votre job (boss uniquement).
+      </p>
+
+      <div class="kv">
+        <div class="kv__row">
+          <div class="kv__key">Label de l’entreprise</div>
+          <div class="kv__val">
+            <span id="c-label" class="view">—</span>
+          </div>
+        </div>
+
+        <div class="kv__row">
+          <div class="kv__key">Location (adresse)</div>
+          <div class="kv__val">
+            <span id="c-address" class="view">—</span>
+            <input id="i-address" class="edit" type="text" placeholder="Adresse" />
+          </div>
+        </div>
+
+        <div class="kv__row">
+          <div class="kv__key">Patron actuel</div>
+          <div class="kv__val">
+            <span id="c-owner" class="view">—</span>
+            <input id="i-owner" class="edit" type="text" placeholder="Nom du patron" />
+          </div>
+        </div>
+
+        <div class="kv__row">
+          <div class="kv__key">Type de compagnie</div>
+          <div class="kv__val">
+            <span id="c-type" class="view">—</span>
+            <input id="i-type" class="edit" type="text" placeholder="Service Public, Privée…" />
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

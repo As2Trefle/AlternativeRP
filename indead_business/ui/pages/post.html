@@ -1,0 +1,115 @@
+<section class="post" data-page="post">
+  <div id="header-root" aria-live="polite"></div>
+
+  <div class="post-split">
+    <!-- ============ COLONNE GAUCHE ============ -->
+    <div class="left-col">
+
+      <!-- ÉTAPE 1 : Infos générales -->
+      <form id="formStep1" class="post-form" autocomplete="off">
+        <h2 class="post-title">Publier une offre d’emploi</h2>
+
+        <div class="grid">
+          <label class="fld">
+            <span class="lbl">Titre de l’annonce</span>
+            <input id="i-title" class="inp" type="text" placeholder="Ex: Cadet de la LSPD H/F" maxlength="120" />
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Label du job (depuis le profil)</span>
+            <input id="i-label" class="inp" type="text" readonly />
+          </label>
+
+          <label class="fld">
+            <span class="lbl">Location</span>
+            <input id="i-location" class="inp" type="text" placeholder="Adresse / Quartier / Poste" maxlength="255" />
+          </label>
+        </div>
+
+        <div class="badges-row">
+          <div class="badge-edit badge-blue">
+            <span class="icon">⚡</span>
+            <span>Répond généralement dans un délai de&nbsp;</span>
+            <input id="i-delay" class="inp-mini" type="number" min="1" max="60" value="2" />
+            <select id="i-delayUnit" class="sel-mini">
+              <option value="jour">jour(s)</option>
+              <option value="semaine">semaine(s)</option>
+            </select>
+          </div>
+
+          <div class="badge-edit badge-green">
+            <span>À partir de&nbsp;</span>
+            <input id="i-salary" class="inp-mini" type="text" placeholder="4800$/semaine" />
+            <span class="ok">✓</span>
+          </div>
+
+          <div class="badge-edit badge-gray">
+            <input id="i-contract" class="inp-mini" type="text" placeholder="CDI, CDD, ..." />
+          </div>
+        </div>
+
+        <div class="hint-type">
+          <span class="lbl">Type d’entreprise</span>
+          <span id="i-companyTypeDisplay" class="hint-pill">Anonyme</span>
+        </div>
+      </form>
+
+      <!-- ÉTAPE 2 : Détails de l’offre -->
+      <form id="formStep2" class="details-form hidden" autocomplete="off">
+        <h2 class="post-title">Détails de l’offre</h2>
+        <p class="desc-hint">Saisis le texte (aucune balise). Chaque ligne dans « Missions / Profil / Avantages » devient une puce.</p>
+
+        <label class="fld">
+          <span class="lbl">Description</span>
+          <textarea id="d-desc" class="txt" rows="5" placeholder="Présente le poste, le contexte, l’équipe…"></textarea>
+        </label>
+
+        <label class="fld">
+          <span class="lbl">Missions (une par ligne)</span>
+          <textarea id="d-missions" class="txt" rows="5" placeholder="Ex: Patrouiller dans les quartiers&#10;Ex: Répondre aux appels d’urgence"></textarea>
+        </label>
+
+        <label class="fld">
+          <span class="lbl">Profil recherché (une ligne = un critère)</span>
+          <textarea id="d-profile" class="txt" rows="5" placeholder="Ex: Sens du service public&#10;Ex: Casier judiciaire vierge"></textarea>
+        </label>
+
+        <label class="fld">
+          <span class="lbl">Avantages (une ligne = un avantage)</span>
+          <textarea id="d-benefits" class="txt" rows="4" placeholder="Ex: Uniforme et équipement fournis&#10;Ex: Prime de risque hebdomadaire"></textarea>
+        </label>
+      </form>
+
+    </div>
+
+    <!-- ============ COLONNE DROITE (Prévisualisation) ============ -->
+    <div class="preview-panel">
+      <h3 class="preview-heading">Prévisualisation de l’annonce</h3>
+
+      <article class="job-card" aria-labelledby="pv-title">
+        <a id="pv-title" class="pv-title" href="javascript:void(0)">—</a>
+        <div class="pv-company" id="pv-company">—</div>
+        <div class="pv-location" id="pv-location">—</div>
+
+        <div class="pv-badges">
+          <span class="b b-blue" id="pv-blue"><i>⚡</i> Répond généralement dans un délai de 2 jours.</span>
+          <span class="b b-green" id="pv-green">À partir de — <b>✓</b></span>
+          <span class="b b-gray" id="pv-gray">—</span>
+        </div>
+
+        <a class="pv-type" id="pv-type" href="javascript:void(0)">Anonyme</a>
+
+        <div class="pv-body">
+          <span class="pv-body__label">Annonce</span>
+          <div id="pv-bodyhtml" class="pv-bodyhtml">—</div>
+        </div>
+      </article>
+
+      <div class="preview-actions">
+        <button id="btnContinue" class="btn-primary" type="button">Continuer</button>
+        <button id="btnValidate" class="btn-success hidden" type="button">Valider</button>
+      </div>
+    </div>
+
+  </div>
+</section>

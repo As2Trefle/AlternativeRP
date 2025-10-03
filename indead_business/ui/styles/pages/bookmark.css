@@ -1,0 +1,101 @@
+/* ui/styles/pages/bookmark.css */
+
+/* Reprend le style de l'accueil */
+@import url("./home.css");
+
+/* === STICKY détail : comme accueil =================== */
+:root{
+  --detail-start: 130px;
+  --sticky-gap: 18px;
+  --detail-height: 100vh;   /* mets 82vh si tu veux la même hauteur personnalisée */
+}
+
+.detail-sticky{
+  align-self:start;
+  position: sticky;
+  top: var(--detail-start);
+}
+
+.detail-card{
+  max-height: calc(var(--detail-height) - var(--detail-start) - var(--sticky-gap));
+  overflow: auto;
+}
+
+/* ===== Titre + actions en haut ======================= */
+.d-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:6px;
+}
+.d-title{ margin:0; }
+
+/* Petits boutons en “ghost” */
+.btn-sm{
+  padding:6px 10px;
+  font-size:12px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-ghost{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--ink);
+}
+.btn-ghost:hover{ background:rgba(37,87,167,.06); }
+
+.btn-ghost-danger{
+  background:transparent;
+  border:1px solid #b91c1c;
+  color:#b91c1c;
+}
+.btn-ghost-danger:hover{ background:rgba(185,28,28,.08); }
+
+.btn-ghost-success{
+  background:transparent;
+  border:1px solid #059669;
+  color:#059669;
+}
+.btn-ghost-success:hover{ background:rgba(5,150,105,.10); }
+
+/* === ÉTAT "EXPIRÉE" (gauche) ========================= */
+.offer.is-expired{
+  filter: grayscale(1) opacity(.55);
+  position: relative;
+}
+.offer.is-expired::after{
+  content: "EXPIRÉE";
+  position: absolute;
+  left:50%; top:50%;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  color:#b91c1c;
+  font-weight:800;
+  background: rgba(255,255,255,.92);
+  padding:6px 10px;
+  border:2px solid #b91c1c;
+  border-radius:10px;
+  pointer-events:none;
+}
+
+/* === ÉTAT "EXPIRÉE" (droite) ========================= */
+.detail-card.expired{
+  filter: grayscale(1) opacity(.85);
+  position: relative;
+}
+.detail-card.expired::after{
+  content: "EXPIRÉE";
+  position: absolute;
+  left:50%; top:120px;
+  transform: translateX(-50%) rotate(-6deg);
+  color:#b91c1c;
+  font-weight:800;
+  background: rgba(255,255,255,.92);
+  padding:10px 14px;
+  border:3px solid #b91c1c;
+  border-radius:12px;
+  pointer-events:none;
+}
+
+.hidden{ display:none !important; }

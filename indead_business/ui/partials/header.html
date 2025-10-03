@@ -1,0 +1,69 @@
+<header class="ib-header" role="banner">
+  <div class="ib-row">
+    <!-- Gauche : logo + nav -->
+    <div class="ib-left">
+      <img class="ib-logo" src="./assets/logo.png" alt="INDEAD" />
+
+      <nav class="ib-nav" aria-label="Navigation principale">
+        <a class="ib-nav__link is-active" href="#" data-tab="home">Page d'accueil</a>
+      </nav>
+    </div>
+
+    <!-- Droite : actions + lien publication -->
+    <div class="ib-right">
+      <div class="ib-icons" aria-label="Actions">
+        <!-- Mes offres (bookmark) -->
+        <img
+          src="./assets/icon-bookmark.svg"
+          alt="Mes offres"
+          class="ib-icon ib-icon--bookmark"
+          role="button"
+          tabindex="0"
+        />
+
+        <!-- Postulants (ex-messages) -->
+        <img
+          src="./assets/icon-folder.svg"
+          alt="Postulants"
+          class="ib-icon ib-icon--applicants"
+          role="button"
+          tabindex="0"
+        />
+
+        <!-- Notifications (cloche) avec badge + panneau -->
+        <div class="ib-iconwrap">
+          <img
+            src="./assets/icon-bell.svg"
+            alt="Notifications"
+            class="ib-icon ib-icon--bell"
+            role="button"
+            tabindex="0"
+          />
+          <span id="notifBadge" class="ib-badge" hidden>0</span>
+
+          <!-- Panneau dropdown des notifications -->
+          <div id="notifPanel" class="ib-notifpanel" hidden>
+            <div class="ib-notifhead">Notifications</div>
+            <div id="notifList" class="ib-notiflist"></div>
+          </div>
+        </div>
+
+        <!-- Profil -->
+        <img
+          src="./assets/icon-user.svg"
+          alt="Profil"
+          class="ib-icon ib-icon--profile"
+          role="button"
+          tabindex="0"
+        />
+      </div>
+
+      <span class="ib-sep" aria-hidden="true"></span>
+
+      <!-- Lien publication -->
+      <div class="ib-rightlink" role="link" tabindex="0">
+        Entreprises / Publier une offre d'emploi
+      </div>
+    </div>
+  </div>
+</header>

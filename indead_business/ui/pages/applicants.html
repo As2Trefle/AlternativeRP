@@ -1,0 +1,100 @@
+<section class="home" data-page="applicants">
+  <div id="header-root" aria-live="polite"></div>
+
+  <div class="home-split">
+    <!-- GAUCHE : liste -->
+    <aside class="list-wrap">
+      <div class="list-card">
+        <div class="list-head">
+          <h2 class="list-title">Postulants</h2>
+        </div>
+        <div id="appsList" class="offers-list" role="list"></div>
+        <div id="appsEmpty" class="offers-empty" hidden>Aucune candidature.</div>
+        <div id="appsLoading" class="offers-loading">Chargement…</div>
+      </div>
+    </aside>
+
+    <!-- DROITE : DÉTAILS (refonte propre) -->
+    <main class="detail-sticky">
+      <article id="appDetail" class="detail-card" aria-live="polite">
+        <!-- En-tête -->
+        <header class="a-head">
+          <div class="a-head__left">
+            <h1 id="a-name" class="d-title">—</h1>
+
+            <div class="a-meta">
+              <div class="a-meta__item">
+                <span class="a-meta__label">Offre</span>
+                <b id="a-offer">—</b>
+              </div>
+              <div class="a-meta__item">
+                <span class="a-meta__label">Date</span>
+                <span id="a-date">—</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="a-head__right">
+            <span id="a-statusPill" class="status-pill">NOUVEAU</span>
+            <button id="a-viewoffer" class="btn-sm btn-ghost" type="button" title="Voir l’offre postulée">
+              Voir l’offre postulée
+            </button>
+          </div>
+        </header>
+
+        <!-- Bloc Statut -->
+        <section class="a-section">
+          <h3 class="a-section__title">Statut</h3>
+          <div class="a-statusrow">
+            <select id="a-statusSel" class="a-select">
+              <option value="NOUVEAU">NOUVEAU</option>
+              <option value="EN_COURS">EN_COURS</option>
+              <option value="ACCEPTER">ACCEPTER</option>
+              <option value="REFUSER">REFUSER</option>
+            </select>
+            <button id="a-statusBtn" class="btn-sm">Mettre à jour</button>
+            <span id="a-statusSave" class="status-save" hidden>✓ Enregistré</span>
+          </div>
+        </section>
+
+        <!-- Bloc Informations -->
+        <section class="a-section">
+          <h3 class="a-section__title">Informations</h3>
+          <div class="a-infogrid">
+            <div class="a-info">
+              <div class="a-info__label">E-mail</div>
+              <div id="a-email" class="a-info__value">—</div>
+            </div>
+            <div class="a-info">
+              <div class="a-info__label">Téléphone</div>
+              <div class="a-info__value a-phone">
+                <span id="a-phone">—</span>
+                <button id="a-call" class="btn-xs btn-call" type="button" title="Appeler">Appeler</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bloc CV -->
+        <section class="a-section">
+          <h3 class="a-section__title">CV</h3>
+
+          <div class="a-subsection">
+            <h4 class="a-subsection__title">Diplômes</h4>
+            <div id="cv-diplomas" class="cv-dips"></div>
+          </div>
+
+          <div class="a-subsection">
+            <h4 class="a-subsection__title">Expériences</h4>
+            <div id="cv-experiences" class="cv-exps"></div>
+          </div>
+
+          <div class="a-subsection">
+            <h4 class="a-subsection__title">Compétences</h4>
+            <div id="cv-skills" class="cv-skills"></div>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+</section>

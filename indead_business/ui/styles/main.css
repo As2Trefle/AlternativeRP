@@ -1,0 +1,26 @@
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+/* Thème */
+:root{
+  --bg:#ffffff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+}
+html[data-theme="dark"], body[data-theme="dark"]{
+  --bg:#0f1115;
+  --ink:#e5e7eb;
+  --muted:#9ca3af;
+  --border:#1f2937;
+}
+
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+  background: var(--bg); color: var(--ink);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container{min-height:100vh;min-height:100dvh;display:block}
+a{color:inherit}
+button{font:inherit}

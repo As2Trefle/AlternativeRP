@@ -1,0 +1,49 @@
+.profile{min-height:100vh;min-height:100dvh;background:var(--bg);}
+.profile-wrap{
+  max-width: 920px; margin: 18px auto 40px; padding: 0 16px;
+  display: grid; justify-items: center;
+}
+.profile-card{
+  width: min(760px, 100%);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.05);
+  padding: 20px;
+}
+html[data-theme="dark"] .profile-card{ box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+
+.profile-card__head{ margin-bottom: 16px; display:flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+#profile-title{ margin:0; font-size: 20px; color: var(--ink); }
+.profile-muted{ margin:0; color: var(--muted); font-size: 14px; }
+
+.profile-actions{ display:flex; gap:10px; }
+.btn{
+  border:1px solid var(--border);
+  background:rgba(37,87,167,.06);
+  color:var(--ink);
+  padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
+}
+.btn:hover{ filter:brightness(.98); }
+.btn-save{ background:#2557a7; color:#fff; border-color:#2557a7; }
+.btn-save:disabled{ opacity:.5; cursor:not-allowed; }
+
+.kv{ display: grid; gap: 12px; }
+.kv__row{
+  display: grid; grid-template-columns: 220px 1fr; gap: 14px;
+  padding: 12px 10px; border-radius: 10px;
+  background: rgba(37,87,167,0.04);
+}
+html[data-theme="dark"] .kv__row{ background: rgba(255,255,255,0.04); }
+
+.kv__key{ color: var(--muted); font-size: 14px; }
+.kv__val{ color: var(--ink); font-weight: 600; font-size: 15px; word-break: break-word; display:flex; gap:10px; align-items:center; }
+
+.edit{ display:none; width:100%; max-width: 520px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--ink); font-weight:500; }
+.profile-card.is-editing .view{ display:none; }
+.profile-card.is-editing .edit{ display:block; }
+.profile-card.is-editing #btnSave{ opacity:1; }
+/* Affichage/édition */
+.profile-card .edit { display:none; }
+.profile-card.is-editing .view { display:none; }
+.profile-card.is-editing .edit { display:block; }

@@ -1,0 +1,192 @@
+/* ui/styles/pages/home.css */
+
+:root{
+  --header-offset: calc(env(safe-area-inset-top, 0px) + var(--ib-header-h) + 12px);
+  --detail-start: 130px;   /* <- choisis ta valeur : 100–180px selon ton goût */
+  --sticky-gap: 18px;
+  --detail-height: 99vh;   /* mets 82vh si tu préfères:  --detail-height: 82vh; */
+  --header-extra: 8px;
+}
+/* Scrollbar FINE pour la page entière (home) */
+html, body{
+  scrollbar-width: thin;                  /* Firefox */
+  scrollbar-color: var(--border) transparent;
+}
+
+/* WebKit (Chrome/Edge/Safari desktop) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb{
+  background: var(--border);
+  border-radius: 999px;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+
+.home{
+  min-height:100vh;
+  min-height:100dvh;
+  background:var(--bg);
+}
+
+/* Split 40/60 */
+.home-split{
+  max-width: 1280px;              /* un peu plus large */
+  margin: 18px auto 40px;
+  padding: 0 16px;
+  display:grid;
+  gap:18px;
+  grid-template-columns: 2fr 3fr; /* 40% / 60% */
+}
+@media (max-width: 1100px){
+  .home-split{ grid-template-columns:1fr; }
+}
+
+/* ===== Liste (gauche) ===== */
+.list-wrap{ align-self:start; }
+.list-card{
+  background: var(--bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+  padding:0;
+  /* ❌ plus de hauteur fixe, plus de grid, la page gère la hauteur */
+}
+html[data-theme="dark"] .list-card{ box-shadow:0 8px 22px rgba(0,0,0,.35); }
+
+.list-head{
+  padding:12px 14px;
+  border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:1; /* garde l’entête visible quand la page scrolle */
+  background:var(--bg);
+}
+.list-title{ margin:0; font-size:18px; color:var(--ink); }
+
+.offers-list{
+  padding:8px;
+  overflow:visible;     /* ✅ pas de scrollbar interne */
+  max-height:none;      /* ✅ laisse la page prendre la hauteur */
+}
+.offers-empty, .offers-loading{
+  padding:10px 14px;
+  color:var(--muted);
+  font-size:14px;
+  border-top:1px solid var(--border);
+}
+
+/* Carte d’offre (item) */
+.offer{
+  display:block;
+  background: var(--bg);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin:0 0 8px 0;
+  cursor:pointer;
+}
+.offer:hover{ filter:brightness(.99); }
+.offer.is-active{ border-color:#2557a7; box-shadow:0 0 0 2px rgba(37,87,167,.15) inset; }
+
+.offer .o-title{
+  font-weight: 800;
+  color:#111827;
+  text-decoration: underline;
+  font-size: 18px;                 /* ↑ et lisible */
+}
+html[data-theme="dark"] .offer .o-title{ color:#e5e7eb; }
+.offer .o-company{
+  color: var(--ink);
+  font-weight: 700;
+  margin-top: 4px;
+  font-size: 15px;                 /* ↓ */
+}
+.offer .o-location{ color:var(--muted); font-size:13px; margin-top:2px; }
+
+.offer .o-badges{
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;
+}
+.b{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 8px; border-radius:10px; font-weight:700; font-size:12px;
+}
+.b-blue{  background:rgba(37,87,167,.08); color:#1e3a8a; }
+.b-green{ background:rgba(16,185,129,.10); color:#065f46; }
+.b-gray{  background:rgba(107,114,128,.15); color:#111827; }
+.b-blue i{ font-style:normal; }
+
+.offer .o-type{
+  display:inline-block; color:#2563eb; margin-top:6px; font-size:13px; text-decoration:underline;
+}
+
+/* ===== Détail (droite) ===== */
+.detail-sticky{
+  align-self:start;
+  position: sticky;
+  top: var(--detail-start);                 /* ✅ ne colle pas au header, reste “à sa place” */
+}
+
+.detail-card{
+  background: var(--bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+  padding:16px;
+  /* ✅ occupe l’espace visible, avec scroll interne si trop long */
+  max-height: calc(var(--detail-height) - var(--detail-start) - var(--sticky-gap));
+  overflow:auto;
+}
+html[data-theme="dark"] .detail-card{ box-shadow:0 8px 22px rgba(0,0,0,.35); }
+
+.d-title{
+  font-weight:800; color:#111827; text-decoration:underline; font-size:22px;
+}
+html[data-theme="dark"] .d-title{ color:#e5e7eb; }
+
+.d-company{ color:var(--ink); font-weight:700; margin-top:6px; font-size:16px; }
+.d-location{ color:var(--muted); margin-top:2px; font-size:13px; }
+
+.d-badges{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 6px;
+  align-items: center;
+}
+.d-badges .b-blue{ grid-column:1 / -1; }
+
+.d-type{ color:#2563eb; text-decoration:underline; font-size:14px; }
+
+.d-body{ margin-top:12px; }
+.d-body__label{ display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
+.d-bodyhtml{ color:var(--ink); line-height:1.46; }
+.d-bodyhtml h4{ margin:10px 0 6px; font-size:15px; }
+.d-bodyhtml p{ margin:6px 0; }
+.d-bodyhtml ul{ margin:6px 0 6px 16px; padding:0; }
+.d-bodyhtml li{ margin:4px 0; }
+
+/* Scrollbars fines (page + panneaux qui scrollent) */
+.home,
+.detail-card{
+  scrollbar-width: thin;                         /* Firefox */
+  scrollbar-color: var(--border) transparent;
+}
+.home ::-webkit-scrollbar,
+.detail-card::-webkit-scrollbar{
+  width: 8px; height: 8px;                       /* WebKit */
+}
+.home ::-webkit-scrollbar-thumb,
+.detail-card::-webkit-scrollbar-thumb{
+  background: var(--border);
+  border-radius: 999px;
+}
+.home ::-webkit-scrollbar-track,
+.detail-card::-webkit-scrollbar-track{
+  background: transparent;
+}

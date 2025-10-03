@@ -1,0 +1,118 @@
+/* --------- réglages généraux + variables --------- */
+:root{
+  --brand:#2557a7;
+  --ib-header-h: 58px; /* hauteur visuelle du header */
+  --statusbar-offset: 28px;
+  /* décalage utilisé par les panneaux sticky (détail à droite, etc.) */
+  --header-offset: calc(env(safe-area-inset-top, 0px) + var(--ib-header-h) + 12px);
+  --sticky-gap: 18px;
+}
+
+#header-root{
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px));
+  z-index: 1000;
+}
+
+/* le contenu du header reste en flux normal */
+#header-root > *{
+  position: relative;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  min-height: var(--ib-header-h);
+  backdrop-filter: saturate(180%) blur(6px);
+  -webkit-backdrop-filter: saturate(180%) blur(6px);
+}
+
+.ib-header{
+  background: var(--bg);
+  border-bottom:1px solid var(--border);
+}
+
+/* --------- rangée du header (avec encoche/safe area) --------- */
+.ib-row{
+  max-width:1400px;
+  margin:0 auto;
+
+  /* pousse franchement sous l’heure/batterie */
+  padding-top: calc(12px + env(safe-area-inset-top, 0px) + var(--statusbar-offset));
+  padding-bottom: 12px;
+
+  /* safe-area latéral */
+  padding-left:  calc(16px + env(safe-area-inset-left,  0px));
+  padding-right: calc(16px + env(safe-area-inset-right, 0px));
+
+  display:flex; align-items:center; justify-content:space-between;
+}
+
+/* --------- bloc gauche (logo + nav) --------- */
+.ib-left{ display:flex; align-items:center; gap:18px; }
+
+/* LOGO PLUS GRAND */
+.ib-logo{ height:36px; width:auto; display:block; }
+
+/* NAV */
+.ib-nav{ display:flex; align-items:center; gap:10px; margin-left:8px; }
+.ib-nav__link{
+  position:relative; display:inline-block;
+  padding:18px 12px 20px;                /* + de hauteur cliquable */
+  font-size:16px;                        /* +1 pt */
+  color:var(--ink); text-decoration:none; border-radius:4px;
+}
+.ib-nav__link:hover{ background:rgba(37,87,167,0.06); }
+html[data-theme="dark"] .ib-nav__link:hover{ background:rgba(255,255,255,0.06); }
+
+.ib-nav__link.is-active::after{
+  content:""; position:absolute; left:12px; right:12px; bottom:0;
+  height:3px; background:var(--brand); border-radius:2px;
+}
+
+/* --------- bloc droit (icônes + lien entreprise) --------- */
+.ib-right{ display:flex; align-items:center; gap:18px; }
+.ib-icons{ display:flex; align-items:center; gap:16px; }
+
+/* ICÔNES PLUS GRANDES */
+.ib-icon{ width:24px; height:24px; display:block; filter:grayscale(0.1); cursor:pointer; }
+.ib-icon:hover{ opacity:.85; }
+
+.ib-sep{ width:1px; height:28px; background: var(--border); display:inline-block; }
+
+.ib-rightlink{
+  color: var(--muted);
+  font-size:14px;
+  white-space:nowrap;
+  padding-left:2px;
+  cursor: pointer;         /* ✅ main */
+  user-select: none;
+}
+.ib-rightlink:hover{ color: var(--ink); text-decoration:underline; }
+
+/* --- Badge & panneau notifications --- */
+.ib-icons{ display:flex; align-items:center; gap:16px; }
+.ib-iconwrap{ position:relative; }
+
+.ib-badge{
+  position:absolute; right:-6px; top:-6px;
+  background:#ef4444; color:#fff; border-radius:999px;
+  min-width:18px; line-height:18px; font-size:11px; text-align:center;
+  padding:0 6px; font-weight:800;
+}
+
+.ib-notifpanel{
+  position:absolute; right:0; top:calc(100% + 8px);
+  width:320px; max-width:80vw;
+  background:var(--bg); border:1px solid var(--border);
+  border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.18);
+  padding:8px; z-index:2000;
+}
+.ib-notifhead{ font-weight:800; color:var(--ink); padding:4px 6px 8px; }
+.ib-notiflist{ max-height:360px; overflow:auto; scrollbar-width:thin; }
+.ib-notiflist::-webkit-scrollbar{ width:8px; }
+.ib-notiflist::-webkit-scrollbar-thumb{ background:var(--border); border-radius:999px; }
+
+.ib-notifitem{
+  border:1px solid var(--border); border-radius:10px;
+  padding:8px; margin:6px 0; font-size:13px;
+}
+.ib-notifitem b{ font-weight:800; }
+.ib-notiftime{ color:var(--muted); font-size:12px; margin-left:4px; }

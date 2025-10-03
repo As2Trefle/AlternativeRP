@@ -1,0 +1,49 @@
+<section class="home" data-page="bookmark">
+  <div id="header-root" aria-live="polite"></div>
+
+  <div class="home-split">
+    <!-- GAUCHE : liste -->
+    <aside class="list-wrap">
+      <div class="list-card">
+        <div class="list-head">
+          <h2 class="list-title">Mes offres</h2>
+        </div>
+
+        <div id="offersList" class="offers-list" role="list"></div>
+        <div id="offersEmpty" class="offers-empty" hidden>Aucune offre publiée.</div>
+        <div id="offersLoading" class="offers-loading">Chargement…</div>
+      </div>
+    </aside>
+
+    <!-- DROITE : détail -->
+    <main class="detail-sticky">
+      <article id="detailCard" class="detail-card" aria-live="polite">
+        <!-- Titre + actions -->
+        <div class="d-head">
+          <a id="d-title" class="d-title" href="javascript:void(0)">—</a>
+          <div class="d-actions">
+            <button id="btnReactivate" class="btn-sm btn-ghost-success hidden" type="button" title="Réactiver l’offre">Réactiver</button>
+            <button id="btnCancel"     class="btn-sm btn-ghost         hidden" type="button" title="Annuler l’offre">Annuler</button>
+            <button id="btnDelete"     class="btn-sm btn-ghost-danger  hidden" type="button" title="Supprimer l’offre">Supprimer</button>
+          </div>
+        </div>
+
+        <div class="d-company" id="d-company">—</div>
+        <div class="d-location" id="d-location">—</div>
+
+        <div class="d-badges">
+          <span class="b b-blue"  id="d-blue"><i>⚡</i> Répond généralement dans un délai de —.</span>
+          <span class="b b-green" id="d-green">À partir de — <b>✓</b></span>
+          <span class="b b-gray"  id="d-gray">—</span>
+        </div>
+
+        <a class="d-type" id="d-type" href="javascript:void(0)">Anonyme</a>
+
+        <div class="d-body">
+          <span class="d-body__label">Annonce</span>
+          <div id="d-bodyhtml" class="d-bodyhtml">—</div>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>

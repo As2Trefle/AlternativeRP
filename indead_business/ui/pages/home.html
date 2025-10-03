@@ -1,0 +1,43 @@
+<section class="home" data-page="home">
+  <div id="header-root" aria-live="polite"></div>
+
+  <div class="home-split">
+    <!-- ===== COLONNE GAUCHE : LISTE ===== -->
+    <aside class="list-wrap">
+      <div class="list-card">
+        <div class="list-head">
+          <h2 class="list-title">Offres disponibles</h2>
+        </div>
+
+        <div id="offersList" class="offers-list" role="list">
+          <!-- items injectés ici -->
+        </div>
+
+        <div id="offersEmpty" class="offers-empty" hidden>Aucune offre disponible pour le moment.</div>
+        <div id="offersLoading" class="offers-loading">Chargement…</div>
+      </div>
+    </aside>
+
+    <!-- ===== COLONNE DROITE : DÉTAIL ===== -->
+    <main class="detail-sticky">
+      <article id="detailCard" class="detail-card" aria-live="polite">
+        <a id="d-title" class="d-title" href="javascript:void(0)">—</a>
+        <div class="d-company" id="d-company">—</div>
+        <div class="d-location" id="d-location">—</div>
+
+        <div class="d-badges">
+          <span class="b b-blue"  id="d-blue"><i>⚡</i> Répond généralement dans un délai de —.</span>
+          <span class="b b-green" id="d-green">À partir de — <b>✓</b></span>
+          <span class="b b-gray"  id="d-gray">—</span>
+        </div>
+
+        <a class="d-type" id="d-type" href="javascript:void(0)">Anonyme</a>
+
+        <div class="d-body">
+          <span class="d-body__label">Annonce</span>
+          <div id="d-bodyhtml" class="d-bodyhtml">—</div>
+        </div>
+      </article>
+    </main>
+  </div>
+</section>
